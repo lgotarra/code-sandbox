@@ -43,46 +43,25 @@ export const Timer = (): React.JSX.Element => {
     >
       <h1 style={{ marginBottom: "20px" }}>{time} seconds</h1>
       <div style={{ display: "flex", gap: "10px" }}>
-        <button
-          onClick={handleOnStart}
-          style={{
-            padding: "8px 16px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
+        <button onClick={handleOnStart} style={buttonStyle}>
           Start
         </button>
-        <button
-          onClick={handleOnPause}
-          style={{
-            padding: "8px 16px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
+        <button onClick={handleOnPause} style={buttonStyle}>
           Pause
         </button>
-        <button
-          onClick={handleOnReset}
-          style={{
-            padding: "8px 16px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
+        <button onClick={handleOnReset} style={buttonStyle}>
           Reset
         </button>
       </div>
     </div>
   );
+};
+
+const buttonStyle = {
+  padding: "8px 16px",
+  backgroundColor: "#007bff",
+  color: "white",
+  border: "none",
+  borderRadius: "4px",
+  cursor: "pointer",
 };
