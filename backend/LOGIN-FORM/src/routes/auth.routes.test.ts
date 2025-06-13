@@ -1,6 +1,6 @@
 import request from "supertest";
 import express from "express";
-import authRoutes from "./auth.routes"; // Tu ruta real con validateData y login
+import authRoutes from "./auth.routes";
 import { StatusCodes } from "http-status-codes";
 
 const app = express();
