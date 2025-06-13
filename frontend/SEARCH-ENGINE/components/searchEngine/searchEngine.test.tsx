@@ -3,7 +3,6 @@ import { describe, it, beforeEach, vi, expect, type Mock } from "vitest";
 import "@testing-library/jest-dom";
 import { SearchEngine } from "./searchEngine";
 import { filterSearchResults } from "./searchFilter";
-import { data } from "./mock";
 import { VirtuosoMockContext } from "react-virtuoso";
 
 // Mocks
@@ -18,7 +17,9 @@ vi.mock("./mock", () => ({
 const customRender = (ui: React.ReactElement) =>
   render(ui, {
     wrapper: ({ children }) => (
-      <VirtuosoMockContext.Provider value={{ viewportHeight: 500, itemHeight: 50 }}>
+      <VirtuosoMockContext.Provider
+        value={{ viewportHeight: 500, itemHeight: 50 }}
+      >
         {children}
       </VirtuosoMockContext.Provider>
     ),
