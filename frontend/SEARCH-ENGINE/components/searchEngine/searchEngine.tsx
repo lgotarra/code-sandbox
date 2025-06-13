@@ -21,13 +21,13 @@ export const SearchEngine = (): React.JSX.Element => {
           className="border p-2 rounded w-full max-w-md"
         />
       </div>
-      {visibleData.length > 0 ? (
+      {visibleData?.length > 0 ? (
         <Virtuoso
           style={{ height: "calc(100vh - 200px)" }}
           totalCount={visibleData.length}
           itemContent={(index) => (
             <div className="p-4 border-b border-gray-200">
-              {visibleData[index]}
+              <p>{visibleData[index]}</p>
             </div>
           )}
         />
