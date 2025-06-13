@@ -34,21 +34,20 @@ describe("Auth Routes Integration", () => {
 
       expect(response.status).toBe(StatusCodes.BAD_REQUEST);
       expect(response.body).toHaveProperty("error", "Invalid data");
-      expect(response.body).toHaveProperty("issues");
-      expect(Array.isArray(response.body.issues)).toBe(true);
+      expect(response.body).toHaveProperty("details");
+      expect(Array.isArray(response.body.details)).toBe(true);
+      expect(response.body.details.length).toEqual(2);
     });
 
     it("should return 400 if required fields are missing", async () => {
-      const response = await request(app)
-        .post("/login")
-        .send({}); // faltan campos
+      const response = await request(app).post("/login").send({}); // faltan campos
 
       expect(response.status).toBe(StatusCodes.BAD_REQUEST);
       expect(response.body).toHaveProperty("error", "Invalid data");
-      expect(response.body.issues).toEqual(
+      expect(response.body.details).toEqual(
         expect.arrayContaining([
-          expect.objectContaining({ path: ["username"] }),
-          expect.objectContaining({ path: ["password"] }),
+          expect.objectContaining({ message: "username is Required" }),
+          expect.objectContaining({ message: "password is Required" }),
         ])
       );
     });
